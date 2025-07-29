@@ -32,16 +32,16 @@ jest.mock('next/image', () => ({
 // Mock framer-motion to avoid animation-related issues in tests
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => React.createElement('div', props, children),
-    section: ({ children, ...props }: any) => React.createElement('section', props, children),
-    button: ({ children, ...props }: any) => React.createElement('button', props, children),
-    h1: ({ children, ...props }: any) => React.createElement('h1', props, children),
-    h2: ({ children, ...props }: any) => React.createElement('h2', props, children),
-    h3: ({ children, ...props }: any) => React.createElement('h3', props, children),
-    p: ({ children, ...props }: any) => React.createElement('p', props, children),
-    span: ({ children, ...props }: any) => React.createElement('span', props, children),
+    div: ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) => React.createElement('div', props, children),
+    section: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => React.createElement('section', props, children),
+    button: ({ children, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => React.createElement('button', props, children),
+    h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => React.createElement('h1', props, children),
+    h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => React.createElement('h2', props, children),
+    h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => React.createElement('h3', props, children),
+    p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => React.createElement('p', props, children),
+    span: ({ children, ...props }: React.HTMLAttributes<HTMLSpanElement>) => React.createElement('span', props, children),
   },
-  AnimatePresence: ({ children }: any) => React.createElement('div', {}, children),
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => React.createElement('div', {}, children),
 }))
 
 // Mock CSS modules

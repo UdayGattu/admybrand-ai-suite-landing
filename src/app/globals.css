@@ -1,124 +1,258 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=SF+Pro+Display:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --font-sans: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
 }
 
+/* Swiss-Apple Hybrid Design System */
 :root {
-  --radius: 0.75rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.145 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.85 0.15 160);
-  --accent-foreground: oklch(0.145 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.85 0.15 160);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.145 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Swiss-inspired neutral palette */
+  --swiss-black: #1a1a1a;
+  --swiss-white: #ffffff;
+  --swiss-gray-50: #fafafa;
+  --swiss-gray-100: #f5f5f5;
+  --swiss-gray-200: #e5e5e5;
+  --swiss-gray-300: #d4d4d4;
+  --swiss-gray-400: #a3a3a3;
+  --swiss-gray-500: #737373;
+  --swiss-gray-600: #525252;
+  --swiss-gray-700: #404040;
+  --swiss-gray-800: #262626;
+  --swiss-gray-900: #171717;
+  
+  /* Apple-inspired accent colors */
+  --apple-blue: #007AFF;
+  --apple-green: #34C759;
+  --apple-orange: #FF9500;
+  --apple-red: #FF3B30;
+  --apple-purple: #AF52DE;
+  --apple-pink: #FF2D92;
+  
+  /* Swiss-Apple hybrid colors */
+  --primary: var(--swiss-black);
+  --primary-foreground: var(--swiss-white);
+  --secondary: var(--swiss-gray-100);
+  --secondary-foreground: var(--swiss-black);
+  --muted: var(--swiss-gray-50);
+  --muted-foreground: var(--swiss-gray-500);
+  --accent: var(--apple-blue);
+  --accent-foreground: var(--swiss-white);
+  --destructive: var(--apple-red);
+  --destructive-foreground: var(--swiss-white);
+  --border: var(--swiss-gray-200);
+  --input: var(--swiss-gray-200);
+  --ring: var(--apple-blue);
+  --background: var(--swiss-white);
+  --foreground: var(--swiss-black);
+  --card: var(--swiss-white);
+  --card-foreground: var(--swiss-black);
+  --popover: var(--swiss-white);
+  --popover-foreground: var(--swiss-black);
+  --chart-1: var(--apple-blue);
+  --chart-2: var(--apple-green);
+  --chart-3: var(--apple-orange);
+  --chart-4: var(--apple-purple);
+  --chart-5: var(--apple-pink);
+  
+  /* Swiss grid system */
+  --grid-unit: 8px;
+  --spacing-xs: calc(var(--grid-unit) * 1);
+  --spacing-sm: calc(var(--grid-unit) * 2);
+  --spacing-md: calc(var(--grid-unit) * 3);
+  --spacing-lg: calc(var(--grid-unit) * 4);
+  --spacing-xl: calc(var(--grid-unit) * 6);
+  --spacing-2xl: calc(var(--grid-unit) * 8);
+  --spacing-3xl: calc(var(--grid-unit) * 12);
+  
+  /* Apple-inspired border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Swiss typography scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: var(--swiss-black);
+  --foreground: var(--swiss-white);
+  --card: var(--swiss-gray-900);
+  --card-foreground: var(--swiss-white);
+  --popover: var(--swiss-gray-900);
+  --popover-foreground: var(--swiss-white);
+  --primary: var(--swiss-white);
+  --primary-foreground: var(--swiss-black);
+  --secondary: var(--swiss-gray-800);
+  --secondary-foreground: var(--swiss-white);
+  --muted: var(--swiss-gray-800);
+  --muted-foreground: var(--swiss-gray-400);
+  --accent: var(--apple-blue);
+  --accent-foreground: var(--swiss-white);
+  --destructive: var(--apple-red);
+  --destructive-foreground: var(--swiss-white);
+  --border: var(--swiss-gray-700);
+  --input: var(--swiss-gray-700);
+  --ring: var(--apple-blue);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Swiss grid system utilities */
+  .swiss-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+  }
+  
+  /* Apple-inspired focus states */
+  *:focus-visible {
+    outline: 2px solid var(--apple-blue);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+  
+  /* Swiss typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  
+  /* Apple-style button focus */
+  button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+  }
+  
+  /* Swiss-inspired spacing system */
+  .space-swiss > * + * {
+    margin-top: var(--spacing-lg);
+  }
+  
+  .space-swiss-sm > * + * {
+    margin-top: var(--spacing-sm);
+  }
+  
+  .space-swiss-md > * + * {
+    margin-top: var(--spacing-md);
+  }
+  
+  .space-swiss-xl > * + * {
+    margin-top: var(--spacing-xl);
+  }
+  
+  /* Apple-style glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Swiss-inspired geometric shapes */
+  .swiss-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--apple-blue);
+    border-radius: 50%;
+  }
+  
+  .swiss-line {
+    height: 1px;
+    background: var(--swiss-gray-300);
+    width: 100%;
+  }
+  
+  /* Apple-style animations */
+  @keyframes apple-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .apple-fade-in {
+    animation: apple-fade-in 0.6s ease-out;
+  }
+  
+  /* Swiss grid responsive breakpoints */
+  @media (max-width: 768px) {
+    .swiss-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+      padding: 0 var(--spacing-md);
+    }
   }
 }

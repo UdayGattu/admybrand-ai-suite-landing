@@ -75,7 +75,7 @@ export function FAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
+                className="bg-card/50 backdrop-blur-sm border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}

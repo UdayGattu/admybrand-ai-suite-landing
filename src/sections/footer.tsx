@@ -56,7 +56,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-background to-primary/5 border-t border-border">
+    <footer className="bg-gradient-to-b from-background to-primary/5 border-t border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
@@ -86,7 +86,7 @@ export function Footer() {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="flex-1 px-4 py-2 rounded-xl border border-border bg-background/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="flex-1 px-4 py-2 rounded-xl border border-gray-200 bg-background/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                   <Button size="sm" variant="gradient">
                     <ArrowRight className="w-4 h-4" />
@@ -204,7 +204,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-t border-border"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-t border-gray-200"
         >
           <div className="flex items-center space-x-3">
             <Mail className="w-5 h-5 text-accent" />
@@ -235,7 +235,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+          className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
         >
           <p className="text-muted-foreground text-sm">
             © 2024 ADmyBRAND AI Suite. All rights reserved.

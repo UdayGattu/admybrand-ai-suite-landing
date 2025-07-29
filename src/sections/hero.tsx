@@ -84,7 +84,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl lg:text-2xl text-gray-600 max-w-3xl leading-relaxed"
             >
-              ADmyBRAND AI Suite combines Swiss precision with Apple's elegance to deliver 
+              ADmyBRAND AI Suite combines Swiss precision with Apple&apos;s elegance to deliver 
               intelligent marketing solutions that scale your business.
             </motion.p>
 

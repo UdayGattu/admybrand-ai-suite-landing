@@ -60,7 +60,7 @@ export function FAQ() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Everything you need to know about ADmyBRAND AI Suite. Can't find the answer you're looking for? 
+            Everything you need to know about ADmyBRAND AI Suite. Can&apos;t find the answer you&apos;re looking for? 
             Contact our support team.
           </p>
         </motion.div>

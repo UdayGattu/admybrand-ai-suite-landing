@@ -140,7 +140,7 @@ export function Features() {
               viewport={{ once: true }}
               className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Every feature is designed with Swiss precision and Apple's human-centered approach 
+              Every feature is designed with Swiss precision and Apple&apos;s human-centered approach 
               to deliver exceptional user experience and business results.
             </motion.p>
           </div>

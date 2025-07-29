@@ -14,6 +14,6 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <Footer />
-    </main>
+      </main>
   )
 }

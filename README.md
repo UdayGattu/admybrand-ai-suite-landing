@@ -192,45 +192,9 @@ The project is configured for deployment on Vercel:
 
 ## 🧠 AI Usage Report
 
-### AI Tools Used
-- **Primary tools:** ChatGPT (OpenAI), GitHub Copilot, v0.dev, Cursor IDE
-- **Key use cases:**  
-  - Architecture planning, design system creation  
-  - Generating React/Next.js components and Tailwind CSS utilities  
-  - Debugging, refactoring, and TypeScript error resolution  
-  - UI/UX inspiration and code review
-
-### Sample Prompts
-1. "Create a Swiss-Apple hybrid design system for a SaaS landing page using Tailwind CSS and Next.js."
-2. "Help me implement an interactive pricing calculator with real-time updates and Swiss-style UI."
-3. "Fix this TypeScript error: 'Element implicitly has an any type because expression of type string can't be used to index type...'"
-4. "Generate a responsive, mobile-first testimonials carousel with Framer Motion animations."
-5. "How can I make a blog/resources section where each article expands inline on the homepage?"
-
-### AI vs Manual Work Split
-- **AI-generated:** ~70%
-  - Initial project scaffolding (Next.js, Tailwind, TypeScript)
-  - Core UI components (Button, Card, PricingCalculator, FAQ, etc.)
-  - Swiss-Apple design system, color palette, and spacing utilities
-  - Animations and micro-interactions (Framer Motion)
-  - Blog/resources section logic and dynamic expansion
-  - TypeScript and ESLint error fixes
-
-- **Manual coding:** ~20%
-  - Customizing layouts for unique Swiss-Apple hybrid look
-  - Fine-tuning responsive breakpoints and grid layouts
-  - Integrating all sections into a seamless, single-page experience
-  - Refactoring AI-generated code for clarity and maintainability
-
-- **Customization:** ~10%
-  - Adapting AI suggestions to match 2025 design trends and personal vision
-  - Adding unique touches (inline blog expansion, interactive calculator logic)
-  - Ensuring accessibility, semantic HTML, and performance best practices
-
-### Summary
-AI assistants were instrumental in rapidly building a modern, visually stunning SaaS landing page. They enabled fast prototyping, solved complex TypeScript and UI challenges, and provided inspiration for advanced features like the interactive pricing calculator and inline blog expansion. Manual effort focused on refining the design, ensuring code quality, and delivering a unique, production-ready experience.
-
 **📄 Complete AI Usage Report:** [AI_Usage_Report.pdf](./AI_Usage_Report.pdf)
+
+*Detailed documentation of AI tools used, workflow, and ethical considerations for this project.*
 
 ## 🤝 Contributing
 

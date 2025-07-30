@@ -192,7 +192,7 @@ The project is configured for deployment on Vercel:
 
 ## 🧠 AI Usage Report
 
-**📄 Complete AI Usage Report:** [AI_usage_report.pdf](./AI_usage_report.pdf)
+**📄 Complete AI Usage Report:** [report.pdf](./report.pdf)
 
 *Detailed documentation of AI tools used, workflow, and ethical considerations for this project.*
 

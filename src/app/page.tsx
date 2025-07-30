@@ -8,7 +8,6 @@ import { Footer } from "@/sections/footer"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { resources } from "@/data/resources"
 import { useState } from "react"
-import Link from "next/link"
 
 export default function Home() {
   const [showAll, setShowAll] = useState(false)

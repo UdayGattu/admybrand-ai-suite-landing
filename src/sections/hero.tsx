@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, Zap, Target, TrendingUp } from "lucide-react"
+import { ArrowRight, Play, Zap, Target, TrendingUp, BarChart3, Users, Globe } from "lucide-react"
+import Image from "next/image"
 
 export function Hero() {
   return (
@@ -84,7 +85,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl lg:text-2xl text-gray-600 max-w-3xl leading-relaxed"
             >
-              ADmyBRAND AI Suite combines Swiss precision with Apple's elegance to deliver 
+              ADmyBRAND AI Suite combines Swiss precision with Apple&apos;s elegance to deliver 
               intelligent marketing solutions that scale your business.
             </motion.p>
 
@@ -135,9 +136,13 @@ export function Hero() {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300"
+                className="border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300 group"
+                onClick={() => {
+                  // Demo video functionality
+                  alert("Demo video would play here! 🎥")
+                }}
               >
-                <Play className="mr-2 w-5 h-5" />
+                <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                 Watch Demo
               </Button>
             </motion.div>
@@ -151,35 +156,54 @@ export function Hero() {
               transition={{ duration: 1, delay: 0.5 }}
               className="relative"
             >
-              {/* Apple-style floating card */}
+              {/* Apple-style floating card with demo content */}
               <div className="relative w-80 h-96 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
                 {/* Swiss-inspired header */}
                 <div className="h-16 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
                   <Target className="w-8 h-8 text-white" />
                 </div>
                 
-                {/* Swiss grid content */}
+                {/* Demo dashboard content */}
                 <div className="p-6 space-y-4">
+                  {/* Header stats */}
                   <div className="flex items-center justify-between">
-                    <div className="w-16 h-2 bg-gray-200 rounded-full"></div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-sm text-gray-600">Live Analytics</span>
+                    </div>
                     <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                       <TrendingUp className="w-4 h-4 text-blue-600" />
                     </div>
                   </div>
                   
-                  <div className="space-y-3">
-                    <div className="w-full h-3 bg-gray-100 rounded-full"></div>
-                    <div className="w-3/4 h-3 bg-gray-100 rounded-full"></div>
-                    <div className="w-1/2 h-3 bg-gray-100 rounded-full"></div>
+                  {/* Chart placeholder */}
+                  <div className="h-20 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg flex items-center justify-center">
+                    <BarChart3 className="w-8 h-8 text-blue-600" />
                   </div>
                   
-                  <div className="flex justify-between items-center pt-4">
-                    <div className="flex space-x-2">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                  {/* Metrics */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="text-center p-3 bg-gray-50 rounded-lg">
+                      <div className="text-lg font-bold text-blue-600">2.4k</div>
+                      <div className="text-xs text-gray-500">Visitors</div>
                     </div>
-                    <div className="text-sm text-gray-500">AI Active</div>
+                    <div className="text-center p-3 bg-gray-50 rounded-lg">
+                      <div className="text-lg font-bold text-green-600">89%</div>
+                      <div className="text-xs text-gray-500">Conversion</div>
+                    </div>
+                  </div>
+                  
+                  {/* AI Status */}
+                  <div className="flex justify-between items-center pt-2">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-sm text-gray-600">AI Active</span>
+                    </div>
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -195,8 +219,10 @@ export function Hero() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute -top-4 -right-4 w-12 h-12 bg-green-100 rounded-2xl border border-green-200"
-              ></motion.div>
+                className="absolute -top-4 -right-4 w-12 h-12 bg-green-100 rounded-2xl border border-green-200 flex items-center justify-center"
+              >
+                <Users className="w-6 h-6 text-green-600" />
+              </motion.div>
               
               <motion.div
                 animate={{ 
@@ -209,8 +235,10 @@ export function Hero() {
                   ease: "easeInOut",
                   delay: 1
                 }}
-                className="absolute -bottom-6 -left-6 w-16 h-16 bg-blue-100 rounded-3xl border border-blue-200"
-              ></motion.div>
+                className="absolute -bottom-6 -left-6 w-16 h-16 bg-blue-100 rounded-3xl border border-blue-200 flex items-center justify-center"
+              >
+                <Globe className="w-8 h-8 text-blue-600" />
+              </motion.div>
             </motion.div>
           </div>
         </div>

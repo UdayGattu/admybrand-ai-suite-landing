@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, Quote } from "lucide-react"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 
 const testimonials = [
   {
@@ -109,14 +110,16 @@ export function Testimonials() {
 
                   {/* Testimonial Content */}
                   <blockquote className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
-                    "{testimonials[currentIndex].content}"
+                    &ldquo;{testimonials[currentIndex].content}&rdquo;
                   </blockquote>
 
                   {/* Author */}
                   <div className="flex items-center justify-center space-x-4">
-                    <img
+                    <Image
                       src={testimonials[currentIndex].image}
                       alt={testimonials[currentIndex].name}
+                      width={48}
+                      height={48}
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div className="text-left">

@@ -121,7 +121,7 @@ export function Pricing() {
               className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
               Start free and scale as you grow. All plans include our core AI features 
-              with Swiss precision and Apple's reliability.
+              with Swiss precision and Apple&apos;s reliability.
             </motion.p>
           </div>
 

@@ -7,6 +7,44 @@ on:
     branches: [ main, develop ]
 
 jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    name: Check for Documentation Changes
+    outputs:
+      docs-only: ${{ steps.filter.outputs.docs-only }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Check for documentation changes only
+      id: filter
+      run: |
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          # For PRs, compare with base branch
+          git diff --name-only origin/${{ github.base_ref }}...HEAD > changed_files.txt
+        else
+          # For pushes, compare with previous commit
+          git diff --name-only HEAD~1...HEAD > changed_files.txt
+        fi
+        
+        # Check if only documentation files changed
+        if grep -q -E '\.(md|pdf|txt)$' changed_files.txt; then
+          # Check if there are any non-documentation files
+          if grep -v -E '\.(md|pdf|txt)$' changed_files.txt | grep -q .; then
+            echo "docs-only=false" >> $GITHUB_OUTPUT
+          else
+            echo "docs-only=true" >> $GITHUB_OUTPUT
+          fi
+        else
+          echo "docs-only=false" >> $GITHUB_OUTPUT
+        fi
+        
+        echo "Changed files:"
+        cat changed_files.txt
+
   test:
     runs-on: ubuntu-latest
     name: Test and Build
@@ -37,9 +75,9 @@ jobs:
       run: npm run build
 
   deploy-staging:
-    needs: test
+    needs: [test, check-changes]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push' && needs.check-changes.outputs.docs-only != 'true'
     name: Deploy to Staging
     
     steps:
@@ -67,9 +105,9 @@ jobs:
         vercel-args: '--target=preview'
 
   deploy-production:
-    needs: test
+    needs: [test, check-changes]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && needs.check-changes.outputs.docs-only != 'true'
     name: Deploy to Production
     
     steps:
@@ -94,4 +132,21 @@ jobs:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-        vercel-args: '--prod' 
+        vercel-args: '--prod'
+
+  skip-deployment:
+    needs: [test, check-changes]
+    runs-on: ubuntu-latest
+    if: needs.check-changes.outputs.docs-only == 'true'
+    name: Skip Deployment (Documentation Only)
+    
+    steps:
+    - name: Skip deployment for documentation changes
+      run: |
+        echo "🚫 Deployment skipped - only documentation files were changed"
+        echo "Changed files:"
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          git diff --name-only origin/${{ github.base_ref }}...HEAD
+        else
+          git diff --name-only HEAD~1...HEAD
+        fi 

@@ -1,9 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant hover:focus-visible:focus-visible:hover;
+
+@theme inline {
+  --color-apple-blue: 0 122 255;
+  --color-apple-green: 52 199 89;
+  --color-apple-orange: 255 149 0;
+  --color-apple-red: 255 59 48;
+  --color-apple-purple: 175 82 222;
+  --color-apple-pink: 255 45 85;
+  --color-apple-yellow: 255 204 0;
+  --color-apple-gray: 142 142 147;
+  --color-apple-gray-2: 174 174 178;
+  --color-apple-gray-3: 199 199 204;
+  --color-apple-gray-4: 209 209 214;
+  --color-apple-gray-5: 229 229 234;
+  --color-apple-gray-6: 242 242 247;
+}
 
 @layer base {
   :root {

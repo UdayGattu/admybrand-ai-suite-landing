@@ -190,11 +190,7 @@ The project is configured for deployment on Vercel:
 | Functionality           | ✅ 100%  | All features work, great UX, interactive pricing/blog      |
 | Documentation           | ✅ 100%  | This README, code comments, AI Usage Report                |
 
-## 🧠 AI Usage Report
 
-**📄 Complete AI Usage Report:** [report.pdf](./report.pdf)
-
-*Detailed documentation of AI tools used, workflow, and ethical considerations for this project.*
 
 ## 🤝 Contributing
 

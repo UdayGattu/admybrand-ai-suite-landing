@@ -1,8 +1,84 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useState } from "react"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Check, Zap, Star, Crown, ArrowRight } from "lucide-react"
+
+function PricingCalculator() {
+  const [plan, setPlan] = useState<"Starter" | "Professional" | "Enterprise">("Professional")
+  const [users, setUsers] = useState(10)
+  const [addonAnalytics, setAddonAnalytics] = useState(false)
+  const [addonSupport, setAddonSupport] = useState(false)
+
+  // Pricing logic
+  const basePrices = { Starter: 29, Professional: 99, Enterprise: 299 }
+  const userMultiplier = plan === "Starter" ? 1 : plan === "Professional" ? 2 : 5
+  const addonTotal = (addonAnalytics ? 20 : 0) + (addonSupport ? 40 : 0)
+  const total = basePrices[plan] + (users - 1) * userMultiplier + addonTotal
+
+  return (
+    <Card className="max-w-2xl mx-auto mb-12 bg-white/80 backdrop-blur-lg shadow-xl border border-gray-200">
+      <CardContent className="py-8">
+        <h3 className="text-2xl font-bold mb-2 text-center">Interactive Pricing Calculator</h3>
+        <p className="text-gray-600 mb-6 text-center">Estimate your monthly cost in real time.</p>
+        <form className="space-y-6">
+          {/* Plan select */}
+          <div>
+            <label className="block font-medium mb-1">Plan</label>
+            <div className="flex gap-3">
+              {["Starter", "Professional", "Enterprise"].map((p) => (
+                <Button
+                  key={p}
+                  type="button"
+                  variant={plan === p ? "gradient" : "outline"}
+                  size="sm"
+                  className="flex-1"
+                  onClick={() => setPlan(p as "Starter" | "Professional" | "Enterprise")}
+                >
+                  {p}
+                </Button>
+              ))}
+            </div>
+          </div>
+          {/* User count slider */}
+          <div>
+            <label className="block font-medium mb-1">Number of users: <span className="font-bold">{users}</span></label>
+            <input
+              type="range"
+              min={1}
+              max={plan === "Starter" ? 10 : plan === "Professional" ? 100 : 1000}
+              value={users}
+              onChange={e => setUsers(Number(e.target.value))}
+              className="w-full accent-blue-600"
+            />
+            <div className="flex justify-between text-xs text-gray-400 mt-1">
+              <span>1</span>
+              <span>{plan === "Starter" ? 10 : plan === "Professional" ? 100 : 1000} users</span>
+            </div>
+          </div>
+          {/* Add-ons */}
+          <div className="flex gap-6">
+            <label className="flex items-center gap-2">
+              <input type="checkbox" checked={addonAnalytics} onChange={e => setAddonAnalytics(e.target.checked)} />
+              <span>Advanced Analytics (+$20)</span>
+            </label>
+            <label className="flex items-center gap-2">
+              <input type="checkbox" checked={addonSupport} onChange={e => setAddonSupport(e.target.checked)} />
+              <span>Premium Support (+$40)</span>
+            </label>
+          </div>
+          {/* Total */}
+          <div className="text-center mt-6">
+            <span className="text-lg text-gray-700">Estimated Total:</span>
+            <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-1">${total}/mo</div>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
+  )
+}
 
 const plans = [
   {
@@ -123,6 +199,11 @@ export function Pricing() {
               Start free and scale as you grow. All plans include our core AI features 
               with Swiss precision and Apple&apos;s reliability.
             </motion.p>
+          </div>
+
+          {/* Pricing Calculator */}
+          <div className="col-span-12">
+            <PricingCalculator />
           </div>
 
           {/* Pricing cards */}

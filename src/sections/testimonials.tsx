@@ -11,7 +11,7 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Marketing Director",
     company: "TechFlow Inc.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    image: "https://i.pravatar.cc/150?img=1",
     content: "ADmyBRAND AI Suite transformed our marketing strategy. We've seen a 300% increase in engagement and 150% boost in conversions. The AI insights are game-changing!",
     rating: 5
   },
@@ -19,7 +19,7 @@ const testimonials = [
     name: "Michael Chen",
     role: "CEO",
     company: "StartupXYZ",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    image: "https://i.pravatar.cc/150?img=2",
     content: "As a startup, we needed to maximize our marketing ROI. This platform delivered exactly what we needed - intelligent automation that actually works.",
     rating: 5
   },
@@ -27,7 +27,7 @@ const testimonials = [
     name: "Emily Rodriguez",
     role: "Digital Marketing Manager",
     company: "Global Retail Co.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    image: "https://i.pravatar.cc/150?img=3",
     content: "The predictive analytics feature alone has saved us thousands in ad spend. The platform is intuitive and the results speak for themselves.",
     rating: 5
   },
@@ -35,7 +35,7 @@ const testimonials = [
     name: "David Kim",
     role: "VP of Marketing",
     company: "InnovateCorp",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    image: "https://i.pravatar.cc/150?img=4",
     content: "We've tried many marketing platforms, but ADmyBRAND AI Suite is the only one that truly understands our audience and delivers personalized results.",
     rating: 5
   },
@@ -43,7 +43,7 @@ const testimonials = [
     name: "Lisa Thompson",
     role: "Founder",
     company: "GrowthLab",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
+    image: "https://i.pravatar.cc/150?img=5",
     content: "The AI-powered insights have revolutionized how we approach customer acquisition. Our conversion rates have never been higher!",
     rating: 5
   }
